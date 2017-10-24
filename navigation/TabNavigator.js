@@ -140,7 +140,7 @@ const MoresTab = StackNavigator( {
   },
   newsletterDetail: {
     screen: NewsletterDetailScreen,
-    path: '/:key',
+    path: '/:title',
   },
   ricohTouch: {
     screen: RicohTouchesScreen,
