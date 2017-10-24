@@ -1,8 +1,13 @@
 import React from 'react'
 import { Dimensions } from 'react-native'
 import { ScreenOrientation } from 'expo'
+import PropTypes from 'prop-types'
 
 export default class BaseScreen extends React.Component {
+  static propTypes = {
+    navigation: PropTypes.object.isRequired,
+  }
+
   static navigationOptions = ( { navigation } ) => ( {
     header: null,
     tabBarVisible:
