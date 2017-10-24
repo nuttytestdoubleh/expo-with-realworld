@@ -10,7 +10,7 @@ import { Colors } from 'constants'
 const styles = StyleSheet.create( {
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.baseWhite,
   },
 } )
 
@@ -38,14 +38,14 @@ const Video = ( { uri } ) => {
               uri,
             },
           }}
-          playIcon={icon( 'ios-play-outline' )}
-          pauseIcon={icon( 'ios-pause-outline' )}
-          fullscreenEnterIcon={icon( 'ios-expand-outline', 0 )}
-          fullscreenExitIcon={icon( 'ios-contract-outline', 0 )}
           textStyle={{
             color: Colors.tintColor,
             fontSize: 12,
           }}
+          playIcon={icon( 'ios-play-outline' )}
+          pauseIcon={icon( 'ios-pause-outline' )}
+          fullscreenEnterIcon={icon( 'ios-expand-outline', 0 )}
+          fullscreenExitIcon={icon( 'ios-contract-outline', 0 )}
           switchToLandscape={e => console.log( e )}
           switchToPortrait={e => console.log( e )}
           playFromPositionMillis={0}

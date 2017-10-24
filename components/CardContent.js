@@ -1,7 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import PropTypes from 'prop-types'
-
 import { Colors } from 'constants'
 
 const styles = StyleSheet.create( {
@@ -26,35 +25,24 @@ const styles = StyleSheet.create( {
     flexDirection: 'row',
   },
   descriptionText: {
+    color: Colors.textDescription,
     fontSize: 13,
     lineHeight: 20,
-    color: Colors.textDescription,
   },
 } )
 
-const CardContent = ( { description, title } ) => {
-  const {
-    containerStyle,
-    rowTitle,
-    titleText,
-    rowDescription,
-    descriptionText,
-  } = styles
-  return (
-    <View style={containerStyle}>
-      <View style={rowTitle}>
-        <Text style={titleText}>
-          {title}
-        </Text>
-      </View>
-      <View style={rowDescription}>
-        <Text style={descriptionText} numberOfLines={2}>
-          {description}
-        </Text>
-      </View>
+const CardContent = ( { description, title } ) => (
+  <View style={styles.containerStyle}>
+    <View style={styles.rowTitle}>
+      <Text style={styles.titleText}>{title}</Text>
     </View>
-  )
-}
+    <View style={styles.rowDescription}>
+      <Text style={styles.descriptionText} numberOfLines={2}>
+        {description}
+      </Text>
+    </View>
+  </View>
+)
 
 CardContent.propTypes = {
   description: PropTypes.string.isRequired,

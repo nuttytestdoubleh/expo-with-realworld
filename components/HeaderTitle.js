@@ -9,6 +9,19 @@ const styles = StyleSheet.create( {
     fontSize: 18,
     fontWeight: '600',
   },
+  rowTitle: {
+    alignSelf: 'flex-start',
+    flex: 2,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+  },
+  rowButton: {
+    alignSelf: 'flex-start',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
 } )
 
 const HeaderTitle = ( {
@@ -16,32 +29,16 @@ const HeaderTitle = ( {
   textTitle,
   buttonOnPress,
   buttonTitle,
-} ) =>
+} ) => (
   <View style={containerStyle}>
-    <View
-      style={{
-        alignSelf: 'flex-start',
-        flex: 2,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'flex-start',
-      }}
-    >
-      <Text style={[ styles.title ]}>
-        {textTitle}
-      </Text>
+    <View style={styles.rowTitle}>
+      <Text style={[ styles.title ]}>{textTitle}</Text>
     </View>
-    <View
-      style={{
-        alignSelf: 'flex-start',
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'flex-end',
-      }}
-    >
+    <View style={styles.rowButton}>
       <ButtonRadius onPress={buttonOnPress} title={buttonTitle} />
     </View>
   </View>
+)
 
 HeaderTitle.propTypes = {
   containerStyle: PropTypes.number,

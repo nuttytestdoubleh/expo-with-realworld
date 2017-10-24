@@ -9,14 +9,11 @@ const styles = {
   },
 }
 
-const ButtonSpinner = ( { containerStyle, size } ) => {
-  const style = { ...styles.spinnerStyle, ...containerStyle }
-  return (
-    <View style={style}>
-      <ActivityIndicator size={size || 'large'} />
-    </View>
-  )
-}
+const ButtonSpinner = ( { containerStyle, size } ) => (
+  <View style={[ containerStyle, styles.spinnerStyle ]}>
+    <ActivityIndicator size={size || 'large'} />
+  </View>
+)
 
 ButtonSpinner.propTypes = {
   containerStyle: PropTypes.object.isRequired,

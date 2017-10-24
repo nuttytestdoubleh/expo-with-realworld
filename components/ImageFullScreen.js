@@ -1,5 +1,12 @@
 import React from 'react'
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native'
+import {
+  PixelRatio,
+  Dimensions,
+  Image,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native'
 import PropTypes from 'prop-types'
 
 const { width, height } = Dimensions.get( 'window' )
@@ -9,29 +16,25 @@ const styles = StyleSheet.create( {
     backgroundColor: 'transparent',
     flexDirection: 'column',
     minWidth: 12,
-    // paddingBottom: 30,
   },
   rowImage: {
-    width: Dimensions.get( 'window' ).width,
-    // marginBottom: 24,
+    width: width,
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.075)',
     flex: 1,
     justifyContent: 'center',
   },
   image: {
-    height: height * 0.3,
+    height: width * 1.4 / ( 16 / 9 ),
     width: width,
   },
 } )
 
-const ImageFullScreen = ( { url } ) => {
-  return (
-    <View style={styles.rowImage}>
-      <Image resizeMode="cover" source={{ uri: url }} style={styles.image} />
-    </View>
-  )
-}
+const ImageFullScreen = ( { pictureStyle, url } ) => (
+  <View style={styles.rowImage}>
+    <Image source={{ uri: url }} style={[ styles.image, pictureStyle ]} />
+  </View>
+)
 
 ImageFullScreen.propTypes = {
   url: PropTypes.string.isRequired,

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Dimensions, Platform, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { Icon } from 'react-native-elements'
-import { LinearGradient } from 'expo'
+import LinearGradient from './LinearGradient'
 import PropTypes from 'prop-types'
 
 import { Colors } from 'constants'
@@ -43,61 +43,55 @@ const styles = StyleSheet.create( {
   },
 } )
 
-const HeaderNavigation = ( { navigation, title } ) => {
-  return (
-    <View style={{ backgroundColor: Colors.tintColor }}>
-      <LinearGradient
-        colors={[ '#CE1D45', '#E0244F', '#E33B61' ]}
-        start={{ x: 0.0, y: 0.25 }}
-        end={{ x: 1.0, y: 1.0 }}
-      >
-        <View style={styles.container}>
-          <View style={styles.leftSection}>
-            <Icon
-              size={32}
-              color={'white'}
-              name={'ios-arrow-back'}
-              type={'ionicon'}
-              underlayColor={'transparent'}
-              underlineColorAndroid={'transparent'}
-              onPress={() => {
-                navigation.goBack( null )
-              }}
-              iconStyle={{
-                backgroundColor: 'transparent',
-                textAlign: 'left',
-                width: 50,
-              }}
-            />
-          </View>
-          <View style={styles.centerSection}>
-            <Text style={styles.title} numberOfLines={1}>
-              {title}
-            </Text>
-          </View>
-          <View style={styles.rightSection}>
-            <Icon
-              size={34}
-              color={'white'}
-              name={'ios-search'}
-              type={'ionicon'}
-              underlayColor={'transparent'}
-              underlineColorAndroid={'transparent'}
-              onPress={() => {
-                navigation.navigate( 'search', { module: 'search' } )
-              }}
-              iconStyle={{
-                backgroundColor: 'transparent',
-                textAlign: 'right',
-                width: 50,
-              }}
-            />
-          </View>
+const HeaderNavigation = ( { navigation, title } ) => (
+  <View style={{ backgroundColor: Colors.tintColor }}>
+    <LinearGradient>
+      <View style={styles.container}>
+        <View style={styles.leftSection}>
+          <Icon
+            color={Colors.baseWhite}
+            underlayColor={Colors.baseTransparent}
+            underlineColorAndroid={Colors.baseTransparent}
+            size={32}
+            name={'ios-arrow-back'}
+            type={'ionicon'}
+            onPress={() => {
+              navigation.goBack( null )
+            }}
+            iconStyle={{
+              backgroundColor: Colors.baseTransparent,
+              textAlign: 'left',
+              width: 50,
+            }}
+          />
         </View>
-      </LinearGradient>
-    </View>
-  )
-}
+        <View style={styles.centerSection}>
+          <Text style={styles.title} numberOfLines={1}>
+            {title}
+          </Text>
+        </View>
+        <View style={styles.rightSection}>
+          <Icon
+            size={34}
+            color={Colors.baseWhite}
+            underlayColor={Colors.baseTransparent}
+            underlineColorAndroid={Colors.baseTransparent}
+            name={'ios-search'}
+            type={'ionicon'}
+            onPress={() => {
+              navigation.navigate( 'search', { module: 'search' } )
+            }}
+            iconStyle={{
+              backgroundColor: Colors.baseTransparent,
+              textAlign: 'right',
+              width: 50,
+            }}
+          />
+        </View>
+      </View>
+    </LinearGradient>
+  </View>
+)
 
 HeaderNavigation.propTypes = {
   navigation: PropTypes.object.isRequired,

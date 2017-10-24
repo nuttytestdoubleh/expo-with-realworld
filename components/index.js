@@ -1,53 +1,24 @@
-import ButtonRadius from './ButtonRadius'
-import ButtonRadiusOutlined from './ButtonRadiusOutlined'
-import ButtonSpinner from './ButtonSpinner'
-import Card from './Card'
-import CardContent from './CardContent'
-import CardContentImage from './CardContentImage'
-import CardSection from './CardSection'
-import CollapsibleFaqs from './CollapsibleFaqs'
-import CustomSearchBar from './CustomSearchBar'
-import HeaderButtonSection from './HeaderButtonSection'
-import HeaderNavigation from './HeaderNavigation'
-import HeaderRootNavigation from './HeaderRootNavigation'
-import HeaderSection from './HeaderSection'
-import HeaderTitle from './HeaderTitle'
-import NoItemComponent from './NoItemComponent'
-import PreLoader from './PreLoader'
-import Search from './SearchContainer'
-import SearchHighlight from './SearchHighlight'
-import SearchSpinner from './SearchSpinner'
-import Slider from './Slider'
-import StyledText from './StyledText'
-import TextDescriptionCard from './TextDescriptionCard'
-import TextError from './TextError'
-import Video from './Video'
-import ImageFullScreen from './ImageFullScreen'
-
-export {
-  ButtonRadius,
-  ButtonRadiusOutlined,
-  ButtonSpinner,
-  Card,
-  CardContent,
-  CardContentImage,
-  CardSection,
-  CollapsibleFaqs,
-  CustomSearchBar,
-  HeaderButtonSection,
-  HeaderNavigation,
-  HeaderRootNavigation,
-  HeaderSection,
-  HeaderTitle,
-  NoItemComponent,
-  PreLoader,
-  Search,
-  SearchHighlight,
-  SearchSpinner,
-  Slider,
-  StyledText,
-  TextDescriptionCard,
-  TextError,
-  Video,
-  ImageFullScreen,
-}
+export { default as ButtonRadius } from './ButtonRadius'
+export { default as ButtonRadiusOutlined } from './ButtonRadiusOutlined'
+export { default as ButtonSpinner } from './ButtonSpinner'
+export { default as Card } from './Card'
+export { default as CardContent } from './CardContent'
+export { default as CardContentImage } from './CardContentImage'
+export { default as CardSection } from './CardSection'
+export { default as CollapsibleFaqs } from './CollapsibleFaqs'
+export { default as HeaderButtonSection } from './HeaderButtonSection'
+export { default as HeaderNavigation } from './HeaderNavigation'
+export { default as HeaderRootNavigation } from './HeaderRootNavigation'
+export { default as HeaderSection } from './HeaderSection'
+export { default as HeaderTitle } from './HeaderTitle'
+export { default as ImageFullScreen } from './ImageFullScreen'
+export { default as LinearGradient } from './LinearGradient'
+export { default as NoItemComponent } from './NoItemComponent'
+export { default as PreLoader } from './PreLoader'
+export { default as Search } from './SearchContainer'
+export { default as SearchSpinner } from './SearchSpinner'
+export { default as Slider } from './Slider'
+export { default as StyledText } from './StyledText'
+export { default as TextDescriptionCard } from './TextDescriptionCard'
+export { default as TextError } from './TextError'
+export { default as Video } from './Video'

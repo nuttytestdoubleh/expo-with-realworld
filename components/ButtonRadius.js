@@ -1,10 +1,9 @@
 import React from 'react'
 import { Button } from 'react-native-elements'
 import PropTypes from 'prop-types'
-
 import { Colors } from 'constants'
 
-const ButtonRadius = ( { title, onPress, style } ) =>
+const ButtonRadius = ( { title, onPress, style } ) => (
   <Button
     backgroundColor={Colors.tintColor}
     borderRadius={5}
@@ -21,6 +20,7 @@ const ButtonRadius = ( { title, onPress, style } ) =>
       ...style,
     }}
   />
+)
 
 ButtonRadius.propTypes = {
   title: PropTypes.string.isRequired,

@@ -5,12 +5,14 @@ import PropTypes from 'prop-types'
 
 import { Colors } from 'constants'
 
+const { width, height } = Dimensions.get( 'window' )
+
 const styles = StyleSheet.create( {
   alignContainers: {
+    height: height - 150,
+    width: width,
     alignItems: 'center',
     justifyContent: 'center',
-    height: Dimensions.get( 'window' ).height - 150,
-    width: Dimensions.get( 'window' ).width,
   },
   containerStyle: {
     alignItems: 'center',
@@ -22,11 +24,11 @@ const styles = StyleSheet.create( {
     textAlign: 'center',
   },
   infoParagraphStyle: {
+    width: width / 1.75,
     color: '#888',
     fontSize: 16,
     padding: 10,
     textAlign: 'center',
-    width: Dimensions.get( 'window' ).width / 1.75,
   },
 } )
 
@@ -35,12 +37,8 @@ const NoItemComponent = ( { iconName, infoHeading, infoParagraph } ) => {
     <View style={styles.alignContainers}>
       <View style={styles.containerStyle}>
         <Icon name={iconName} size={64} color={Colors.tabIconDefault} />
-        <Text style={styles.infoHeadingStyle}>
-          {infoHeading}
-        </Text>
-        <Text style={styles.infoParagraphStyle}>
-          {infoParagraph}
-        </Text>
+        <Text style={styles.infoHeadingStyle}>{infoHeading}</Text>
+        <Text style={styles.infoParagraphStyle}>{infoParagraph}</Text>
       </View>
     </View>
   )

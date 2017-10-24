@@ -1,31 +1,25 @@
+// TODO: must refractory
 import React, { Component } from 'react'
-import {
-  Dimensions,
-  Image,
-  PixelRatio,
-  Platform,
-  Text,
-  View,
-  WebView,
-} from 'react-native'
+import { Dimensions, Image, Platform, Text, View, WebView } from 'react-native'
 import Swiper from 'react-native-swiper'
-import { object, url } from 'utilities'
+import { object, resolution, url } from 'utilities'
 import { Colors } from 'constants'
 
 import ImageFullScreen from './ImageFullScreen'
 
 const { width } = Dimensions.get( 'window' )
 
-const calHeight = {
-  height: PixelRatio.roundToNearestPixel(
-    Dimensions.get( 'window' ).width / ( 16 / 9 )
-  ),
-}
-
 const styles = {
   wrapper: {},
   pagination: {
-    bottom: Platform.OS === 'android' ? 30 : -30,
+    ...Platform.select( {
+      ios: {
+        bottom: -30,
+      },
+      android: {
+        bottom: 30,
+      },
+    } ),
   },
   buttonWrappe: {
     backgroundColor: 'transparent',
@@ -64,9 +58,9 @@ const styles = {
     fontWeight: 'bold',
   },
   player: {
+    height: resolution.aspectRatioWideScreen().height,
     alignSelf: 'stretch',
     marginVertical: 10,
-    height: calHeight,
   },
 }
 
@@ -93,7 +87,7 @@ class Slider extends Component {
         }}
         style={{
           backgroundColor: 'transparent',
-          height: calHeight.height,
+          height: resolution.aspectRatioWideScreen().height,
           width: width,
         }}
       />
@@ -129,6 +123,10 @@ class Slider extends Component {
       ) {
         return (
           <ImageFullScreen
+            pictureStyle={{
+              height: resolution.aspectRatioWideScreen().height,
+              ...this.props.pictureStyle,
+            }}
             url={object.getFirstByKey( {
               item: this.props.urls,
               key: 'imgs',
@@ -141,10 +139,11 @@ class Slider extends Component {
             containerStyle={{
               backgroundColor: 'black',
               width: Dimensions.get( 'window' ).width,
+              height: resolution.aspectRatioWideScreen().height,
+              ...this.props.pictureStyle,
             }}
             activeDotColor={Colors.tintColor}
             buttonWrapperStyle={styles.buttonWrappe}
-            height={calHeight.height}
             loop={false}
             nextButton={<Text style={styles.nextButton}>›</Text>}
             paginationStyle={styles.pagination}
@@ -161,11 +160,14 @@ class Slider extends Component {
                 source={{
                   uri: e,
                 }}
-                style={{
-                  backgroundColor: 'transparent',
-                  height: calHeight.height,
-                  width: width,
-                }}
+                style={[
+                  {
+                    backgroundColor: 'transparent',
+                    height: resolution.aspectRatioWideScreen().height,
+                    width: width,
+                  },
+                  this.props.pictureStyle,
+                ]}
               />
             ) )}
           </Swiper>
@@ -177,7 +179,7 @@ class Slider extends Component {
             }}
             activeDotColor={Colors.tintColor}
             buttonWrapperStyle={styles.buttonWrappe}
-            height={calHeight.height}
+            height={resolution.aspectRatioWideScreen().height}
             loop={false}
             nextButton={<Text style={styles.nextButton}>›</Text>}
             paginationStyle={styles.pagination}
@@ -196,11 +198,14 @@ class Slider extends Component {
                     key: 'imgs',
                   } ),
                 }}
-                style={{
-                  backgroundColor: 'transparent',
-                  height: calHeight.height,
-                  width: width,
-                }}
+                style={[
+                  {
+                    backgroundColor: 'transparent',
+                    height: resolution.aspectRatioWideScreen().height,
+                    width: width,
+                  },
+                  this.props.pictureStyle,
+                ]}
               />
             </View>
             {this.props.hasVideo ? (
@@ -229,7 +234,7 @@ class Slider extends Component {
                     } ),
                   }}
                   style={{
-                    height: calHeight.height,
+                    height: resolution.aspectRatioWideScreen().height,
                     width: width,
                   }}
                 />
