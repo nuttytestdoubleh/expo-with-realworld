@@ -10,17 +10,25 @@ const styles = StyleSheet.create( {
     flexDirection: 'row',
   },
   prefix: {
+    borderColor: '#d4d4d4',
+    borderRadius: 20,
+    borderWidth: 2,
     flexDirection: 'row',
+    marginBottom: 8,
+    marginLeft: 1,
     marginRight: 12,
+    marginTop: 8,
   },
   text: {
-    fontSize: 15,
-    lineHeight: 24,
     color: Colors.textDescription,
+    fontSize: 14,
+    lineHeight: 24,
+    marginBottom: 6,
+    marginTop: 6,
   },
   title: {
-    flexDirection: 'row',
     width: width * 0.8 + 20,
+    justifyContent: 'center',
   },
 } )
 
@@ -34,7 +42,7 @@ const Pro = ( { name } ) => {
             fontSize: 16,
           }}
         >
-          {'•'}
+          {''}
         </Text>
       </View>
       <View style={styles.title}>

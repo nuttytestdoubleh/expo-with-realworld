@@ -4,14 +4,7 @@ import { connectHighlight } from 'react-instantsearch/connectors'
 import { Colors } from 'constants'
 
 export default connectHighlight(
-  ( {
-    highlight,
-    attributeName,
-    hit,
-    highlightProperty,
-    core = false,
-    textStyle,
-  } ) => {
+  ( { attributeName, hit, core = false, textStyle } ) => {
     const parsedHit = hit._highlightResult[ attributeName ]
     if (
       !core &&

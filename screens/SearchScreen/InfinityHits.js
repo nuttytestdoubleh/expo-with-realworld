@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import renderRow from './Hit'
 import renderSeparator from './Separator '
+
 import styles from './SearchStyle'
 
 class Hits extends Component {

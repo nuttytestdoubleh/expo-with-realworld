@@ -127,8 +127,6 @@ class LoginForm extends Component {
   // }
 
   renderButton = word => {
-    console.log( 'click' )
-
     const { isFetching, profile: { isValidEmail } } = this.props
     return (
       <View>
@@ -156,8 +154,6 @@ class LoginForm extends Component {
   }
 
   renderPassCodeButton = word => {
-    console.log( 'click' )
-
     const { isFetching, profile: { isValidEmail } } = this.props
     return (
       <View>

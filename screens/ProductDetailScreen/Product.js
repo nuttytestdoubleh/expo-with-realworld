@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import Spinner from 'react-native-loading-spinner-overlay'
 import PropTypes from 'prop-types'
+import { resolution, string } from 'utilities'
 
 import {
   ButtonRadiusOutlined,
@@ -9,7 +10,6 @@ import {
   HeaderButtonSection,
   HeaderTitle,
   Slider,
-  ImageFullScreen,
   TextDescriptionCard,
 } from '@components'
 
@@ -79,12 +79,20 @@ const ProductCard = props => {
         textTitle={name}
       />
       <View style={styles.thumbnailView}>
-        <Slider urls={urls} all />
+        <Slider
+          urls={urls}
+          pictureStyle={{
+            height: resolution.aspectRatioStandardScreen().height,
+          }}
+          all
+        />
       </View>
-      <TextDescriptionCard
-        containerstyle={styles.detailsView}
-        title={description}
-      />
+      {!string.isEmpty( description ) && (
+        <TextDescriptionCard
+          containerstyle={styles.detailsView}
+          title={description}
+        />
+      )}
       {!isMFP ? (
         <View style={styles.price}>
           <PriceText

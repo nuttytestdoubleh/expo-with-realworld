@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { nav } from 'utilities'
 
-import Touch from './Touch'
+import Touch from './TouchContainer'
 import { HeaderNavigation } from '@components'
 
 const RicohTouchDetailScreen = ( { navigation } ) => (

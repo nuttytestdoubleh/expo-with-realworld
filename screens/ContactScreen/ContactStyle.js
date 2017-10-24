@@ -25,10 +25,10 @@ export default StyleSheet.create( {
     width: 110,
   },
   contactBodyTitle: {
+    color: Colors.tintColor,
     flex: 4,
     fontWeight: 'bold',
     textAlign: 'right',
-    color: Colors.tintColor,
   },
   contactHeaderText: {
     fontSize: 17,

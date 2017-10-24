@@ -1,5 +1,4 @@
 import { compose, pure, mapProps, withHandlers } from 'recompose'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { appLink, ga } from 'services'
 import { withPreloader } from 'hocs'
@@ -15,11 +14,19 @@ const mapStateToProps = state => ( {
 export default compose(
   connect( mapStateToProps ),
   withHandlers( {
-    onPressAppSelect: ( { navigation } ) => (
+    onPressAppSelect: ( { navigation } ) => ( {
+      appName,
       appStoreId,
       appStoreLocale,
-      playStoreId
-    ) => appLink.openInStore( appStoreId, appStoreLocale, playStoreId ),
+      playStoreId,
+    } ) => {
+      ga.trackEvent( {
+        eventCategory: 'appPortal',
+        eventAction: 'select app of app portal',
+        eventLabel: appName,
+      } )
+      appLink.openInStore( appStoreId, appStoreLocale, playStoreId )
+    },
   } ),
   withPreloader,
   pure

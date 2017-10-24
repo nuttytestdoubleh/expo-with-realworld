@@ -26,12 +26,12 @@ const styles = StyleSheet.create( {
     marginTop: 0,
   },
   backgroundImage: {
+    height: height * 0.2 - 20,
+    width: width * 1,
     alignItems: 'center',
     flexDirection: 'column',
     justifyContent: 'center',
     resizeMode: 'cover',
-    height: height * 0.2 - 20,
-    width: width * 1,
   },
   text: {
     backgroundColor: 'rgba(0,0,0,0)',

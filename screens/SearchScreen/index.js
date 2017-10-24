@@ -1,13 +1,10 @@
 import React from 'react'
+import { View } from 'react-native'
 import PropTypes from 'prop-types'
-import { Colors } from 'constants'
 
-import { View, StyleSheet } from 'react-native'
-import { Icon } from 'react-native-elements'
-import { Search } from '@components'
 import SearchList from './SearchListContainer'
 
-const SearchScreen = ( { navigation } ) => <View />
+const SearchScreen = () => <View />
 
 SearchScreen.navigationOptions = ( { navigation } ) => ( {
   header: <SearchList navigation={navigation} />,

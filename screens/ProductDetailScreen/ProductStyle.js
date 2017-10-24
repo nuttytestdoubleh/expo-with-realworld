@@ -9,7 +9,7 @@ export default StyleSheet.create( {
   },
   detailsView: {
     marginBottom: 22,
-    marginTop: 35,
+    marginTop: 22,
     paddingLeft: 20,
     paddingRight: 20,
   },
@@ -69,7 +69,7 @@ export default StyleSheet.create( {
     alignItems: 'center',
     justifyContent: 'center',
     margin: 15,
-    marginTop: 30,
+    marginTop: 20,
     paddingLeft: 20,
     paddingRight: 20,
   },

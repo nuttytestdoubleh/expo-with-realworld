@@ -13,22 +13,20 @@ const styles = StyleSheet.create( {
     borderRadius: 90 / PixelRatio.get(),
   },
   text: {
-    color: '#ccc',
+    color: 'white',
     fontSize: 12,
-    fontWeight: '600',
-    marginLeft: 4,
-  },
-  wrapper: {
-    alignItems: 'center',
+    fontWeight: '700',
+    textAlign: 'justify',
   },
 } )
 
-const Tag = ( { name, style } ) =>
+const Tag = ( { name, style } ) => (
   <Badge
     containerStyle={[ styles.icon, style ]}
-    textStyle={{ color: 'white', fontSize: 12 }}
+    textStyle={styles.text}
     value={name.toUpperCase()}
   />
+)
 
 Tag.propTypes = {
   name: PropTypes.string.isRequired,

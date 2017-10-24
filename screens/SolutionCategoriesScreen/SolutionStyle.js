@@ -79,7 +79,7 @@ export default StyleSheet.create( {
     alignItems: 'center',
     justifyContent: 'center',
     margin: 15,
-    marginTop: 30,
+    marginTop: 20,
     paddingLeft: 20,
     paddingRight: 20,
   },

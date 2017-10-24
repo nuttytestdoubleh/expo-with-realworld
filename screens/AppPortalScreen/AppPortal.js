@@ -7,114 +7,86 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
-import { Card, ListItem, Button } from 'react-native-elements'
+import PropTypes from 'prop-types'
 import { Colors } from 'constants'
-import { object } from 'utilities'
 
-import {
-  CardContentImage,
-  ButtonRadiusOutlined,
-  CollapsibleFaqs,
-  HeaderButtonSection,
-  HeaderTitle,
-  Slider,
-  TextDescriptionCard,
-} from '@components'
+const { width } = Dimensions.get( 'window' )
 
 const styles = StyleSheet.create( {
   container: {
-    backgroundColor: '#fff',
-    flexDirection: 'column',
-    paddingTop: 0,
+    backgroundColor: Colors.tintColor,
+    height: Dimensions.get( 'window' ).height,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    paddingBottom: 30,
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingTop: 30,
   },
-  thumbnailView: {
-    flex: 1,
+  image: {
+    backgroundColor: 'rgba(0, 0, 0, 0.075)',
+    borderRadius: 10,
+    height: 70,
+    marginBottom: 5,
+    width: 70,
+  },
+  rowImage: {
+    width: width / 3 - 10,
     alignItems: 'center',
-    justifyContent: 'center',
-    margin: 15,
-    marginTop: 30,
-    paddingLeft: 20,
-    paddingRight: 20,
+    flexDirection: 'column',
+    flexGrow: 1,
+    marginBottom: 35,
   },
-  detailsView: {
-    marginBottom: 22,
-    marginTop: 35,
-    paddingLeft: 20,
-    paddingRight: 20,
+  nameText: {
+    alignItems: 'center',
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '400',
+    marginTop: 10,
+    textAlign: 'center',
   },
 } )
 
-const NewsLetter = ( { apps, onPressAppSelect } ) => {
-  return (
-    <View
-      style={{
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        backgroundColor: Colors.tintColor,
-        // backgroundColor: 'white',
+const AppPortal = ( { apps, onPressAppSelect } ) => (
+  <View style={styles.container}>
+    {Object.keys( apps ).map( e => {
+      const {
+        appName,
+        appStoreId,
+        appStoreLocale,
+        iconUrl,
+        playStoreId,
+      } = apps[ e ]
 
-        height: Dimensions.get( 'window' ).height,
-        paddingLeft: 15,
-        paddingRight: 15,
-        paddingTop: 30,
-        paddingBottom: 30,
-      }}
-    >
-      {Object.keys( apps ).map( ( e, k ) => {
-        return (
-          <TouchableOpacity
-            key={`app-portal-${ e }`}
-            onPress={() =>
-              onPressAppSelect(
-                apps[ e ].appStoreId,
-                apps[ e ].appStoreLocale,
-                apps[ e ].playStoreId
-              )}
-          >
-            <View
-              style={{
-                // marginLeft: 15,
-                // marginRight: 15,
-                // marginTop: 10,
-                marginBottom: 35,
-
-                flexDirection: 'column',
-                // justifyContent: 'center',
-                flexGrow: 1,
-                alignItems: 'center',
-                width: Dimensions.get( 'window' ).width / 3 - 10,
+      return (
+        <TouchableOpacity
+          key={`app-portal-${ e }`}
+          onPress={() =>
+            onPressAppSelect( {
+              appName,
+              appStoreId,
+              appStoreLocale,
+              playStoreId,
+            } )}
+        >
+          <View style={styles.rowImage}>
+            <Image
+              style={styles.image}
+              source={{
+                uri: iconUrl,
               }}
-            >
-              <Image
-                style={{
-                  height: 70,
-                  width: 70,
-                  marginBottom: 5,
-                  backgroundColor: 'rgba(0, 0, 0, 0.075)',
-                  borderRadius: 10,
-                }}
-                source={{
-                  uri: apps[ e ].iconUrl,
-                }}
-              />
-              <Text
-                style={{
-                  fontSize: 16,
-                  fontWeight: '400',
-                  marginTop: 10,
-                  color: 'white',
-                  alignItems: 'center',
-                  textAlign: 'center',
-                }}
-              >
-                {apps[ e ].appName}
-              </Text>
-            </View>
-          </TouchableOpacity>
-        )
-      } )}
-    </View>
-  )
+            />
+            <Text style={styles.nameText}>{appName}</Text>
+          </View>
+        </TouchableOpacity>
+      )
+    } )}
+  </View>
+)
+
+AppPortal.propTypes = {
+  apps: PropTypes.object.isRequired,
+  onPressAppSelect: PropTypes.func.isRequired,
 }
 
-export default NewsLetter
+export default AppPortal

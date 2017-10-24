@@ -41,11 +41,11 @@ export default connectHighlight(
           <Text
             style={[
               {
+                width: Dimensions.get( 'window' ).width * 0.9 + 8,
                 fontSize: core ? 14.5 : 12.5,
                 fontWeight: core ? '300' : '200',
                 lineHeight: 22,
                 textAlign: 'justify',
-                width: Dimensions.get( 'window' ).width * 0.9 + 8,
               },
               textStyle,
             ]}

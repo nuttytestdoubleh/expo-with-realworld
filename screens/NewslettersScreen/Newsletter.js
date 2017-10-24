@@ -7,97 +7,68 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
-import { Card, ListItem, Button } from 'react-native-elements'
+import { Card } from 'react-native-elements'
+import PropTypes from 'prop-types'
 import { object } from 'utilities'
 
-import {
-  CardContentImage,
-  ButtonRadiusOutlined,
-  CollapsibleFaqs,
-  HeaderButtonSection,
-  HeaderTitle,
-  Slider,
-  TextDescriptionCard,
-} from '@components'
-
 const styles = StyleSheet.create( {
-  container: {
-    backgroundColor: '#fff',
-    flexDirection: 'column',
-    paddingTop: 0,
+  card: {
+    flexGrow: 1,
+    justifyContent: 'space-between',
+    marginBottom: 5,
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: 10,
   },
-  thumbnailView: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: 15,
-    marginTop: 30,
-    paddingLeft: 20,
-    paddingRight: 20,
+  image: {
+    backgroundColor: 'rgba(0, 0, 0, 0.075)',
+    height: 200,
+    marginBottom: 5,
   },
-  detailsView: {
-    marginBottom: 22,
-    marginTop: 35,
-    paddingLeft: 20,
-    paddingRight: 20,
+  textTitle: {
+    fontSize: 12.5,
+    fontWeight: '500',
+    marginBottom: 5,
+  },
+  textDescription: {
+    fontSize: 11,
   },
 } )
 
-const NewsLetter = ( { newsletters, onPressNewsletterSelect } ) => {
-  return (
-    <View>
-      {Object.keys( newsletters ).map( ( e, k ) => {
-        return (
-          <TouchableOpacity
-            key={`newsletters-${ newsletters[ e ].title }`}
-            onPress={() => onPressNewsletterSelect( e )}
-          >
-            <Card
-              containerStyle={{
-                marginLeft: 15,
-                marginRight: 15,
-                marginTop: 10,
-                marginBottom: 10,
-                flexGrow: 1,
-                justifyContent: 'space-between',
+const NewsLetter = ( { newsletters, onPressNewsletterSelect } ) => (
+  <View>
+    {Object.keys( newsletters ).map( ( e, k ) => {
+      const { description, title, urls } = newsletters[ e ]
+
+      return (
+        <TouchableOpacity
+          key={`newsletters-${ title }-${ k }`}
+          onPress={() => onPressNewsletterSelect( e, title )}
+        >
+          <Card containerStyle={styles.card}>
+            <Image
+              style={styles.image}
+              source={{
+                uri: object.getFirstByKey( {
+                  item: urls,
+                  key: 'imgs',
+                } ),
               }}
-            >
-              <Image
-                style={{
-                  height: 200,
-                  marginBottom: 5,
-                  backgroundColor: 'rgba(0, 0, 0, 0.075)',
-                }}
-                source={{
-                  uri: object.getFirstByKey( {
-                    item: newsletters[ e ].urls,
-                    key: 'imgs',
-                  } ),
-                }}
-              />
-              <Text
-                style={{
-                  fontSize: 12.5,
-                  fontWeight: '500',
-                  marginBottom: 5,
-                }}
-              >
-                {newsletters[ e ].title}
-              </Text>
-              <Text
-                style={{
-                  fontSize: 11,
-                }}
-                numberOfLines={2}
-              >
-                {newsletters[ e ].description}
-              </Text>
-            </Card>
-          </TouchableOpacity>
-        )
-      } )}
-    </View>
-  )
+            />
+            <Text style={styles.textTitle}>{title}</Text>
+            <Text style={styles.textDescription} numberOfLines={2}>
+              {description}
+            </Text>
+          </Card>
+        </TouchableOpacity>
+      )
+    } )}
+  </View>
+)
+
+NewsLetter.propTypes = {
+  newsletters: PropTypes.object.isRequired,
+  onPressNewsletterSelect: PropTypes.func.isRequired,
 }
 
 export default NewsLetter
