@@ -22,7 +22,6 @@ const omit = ( ...sources ) => {
 }
 
 const isDeepEmpty = ( array, ...ignoreKey ) => {
-  console.log( ignoreKey )
   if ( Object.keys( array ).length === 0 ) return true
 
   return Object.keys( omit( ...ignoreKey, array ) ).filter( e => {
