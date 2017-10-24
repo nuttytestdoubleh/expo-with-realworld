@@ -1,7 +1,5 @@
-import Alerts from './Alerts'
-import Colors from './Colors'
-import DefaultTab from './DefaultTab'
-import Layout from './Layout'
-import Langs from './Langs'
-
-export { Alerts, Colors, DefaultTab, Layout, Langs }
+export { default as Alerts } from './Alerts'
+export { default as Colors } from './Colors'
+export { default as DefaultTab } from './DefaultTab'
+export { default as Langs } from './Langs'
+export { default as Layout } from './Layout'

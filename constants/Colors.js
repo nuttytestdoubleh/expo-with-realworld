@@ -4,8 +4,12 @@ const darkTintColor = '#fff'
 export default {
   darkTintColor,
   tintColor,
+  baseWhite: '#FFF',
   backgroundSection: '#EAEFEF',
+  baseTransparent: 'transparent',
+  baseUnderlayColor: 'transparent',
   cardBorder: '#dddddd',
+  baseBorder: '#dddddd',
   errorBackground: 'red',
   errorText: '#fff',
   iconGrey: '#C0C0C0',
@@ -20,4 +24,5 @@ export default {
   textDescription: '#606464',
   warningBackground: '#EAEB5E',
   warningText: '#666804',
+  baseNavGradient: [ '#CE1D45', '#E0244F', '#E33B61' ],
 }
