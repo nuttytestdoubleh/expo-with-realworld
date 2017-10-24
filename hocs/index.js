@@ -1,3 +1,1 @@
-import withPreloader from './withPreloader'
-
-export { withPreloader }
+export { default as withPreloader } from './withPreloader'
