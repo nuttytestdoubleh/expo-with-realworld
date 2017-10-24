@@ -42,6 +42,8 @@ const formatMoney = ( {
     : `${ symbol } ${ moneyWithDigit }`
 }
 
+const isEmpty = str => ( !str || str.trim().length === 0 ? true : false )
+
 export {
   formatMoney,
   hasCapitalize,
@@ -49,4 +51,5 @@ export {
   hasSpaceCapitalize,
   isLengthGreaterThan,
   isNotEmpty,
+  isEmpty,
 }
